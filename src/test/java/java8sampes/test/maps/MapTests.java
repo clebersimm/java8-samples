@@ -49,6 +49,7 @@ public class MapTests {
 		assertTrue(collect.equals(result));
 	}
 	
+	//Convert the values of the map to lower case
 	@Test
 	public void convertValuesToLowerCase() {
 		Map<Integer,String> result =  map1.keySet().stream().collect(Collectors.toMap(key->key, key->map1.get(key).toLowerCase()));
