@@ -13,8 +13,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * this class could be a Main, but in the near future i'll put the assets to
- * test
+ * Some tests with maps in java8
  * 
  * @author clebersimm
  *
@@ -49,4 +48,12 @@ public class MapTests {
 		result.addAll(asList);
 		assertTrue(collect.equals(result));
 	}
+	
+	@Test
+	public void convertValuesToLowerCase() {
+		Map<Integer,String> result =  map1.keySet().stream().collect(Collectors.toMap(key->key, key->map1.get(key).toLowerCase()));
+		List<String> comp = Arrays.asList(alphabet);
+		comp = comp.stream().map(s->s.toLowerCase()).collect(Collectors.toList());
+		assertTrue(result.values().containsAll(comp));
+	}	
 }
